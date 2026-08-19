@@ -1,17 +1,10 @@
--- Criando o banco de dados Loja
-
 create DATABASE loja;
 use loja;
-
--- Criando a tabela Produtos
-
 create table produtos(
 id int primary key auto_increment,
 nome varchar(20),
 preco decimal(10,2),
 estoque int);
-
--- Inserindo dados em Produtos
 
 insert into produtos
 (nome, preco, estoque)
@@ -22,17 +15,6 @@ values
 ('Headset', '250.00', '8'),
 ('Webcam', '180.00', '12');
 
--- Realizando consultas à tabela Produtos
-
-select * from produtos;
-select nome from produtos;
-select preco from produtos;
-select * from produtos where preco >= 200.00;
-select * from produtos where estoque < 10;
-select * from produtos order by preco; 
-select * from produtos where preco > 100 and estoque > 5 order by preco desc;
-
--- Criando a tabela Clientes
 
 create table clientes(
 id int auto_increment primary key,
@@ -41,8 +23,6 @@ dt_nasc date,
 cidade varchar(40),
 saldo decimal(10,2)
 );
-
--- Inserindo dados em Clientes
 
 insert into clientes
 (nome, dt_nasc, cidade, saldo)
@@ -56,8 +36,6 @@ values
 ('Juliana', '2004-07-07', 'Diadema', 950.00),
 ('Rafael', '1981-08-08', 'São Paulo', 5100.00);
 
--- Consultas à tabela Clientes
-
 select * from clientes;
 select * from clientes where cidade = 'Diadema';
 select * from clientes where dt_nasc > '2000-01-01';
@@ -67,14 +45,11 @@ select nome, saldo from clientes where saldo > 1500.00;
 select * from clientes where cidade = 'Diadema' and dt_nasc < '2000-01-01';
 select * from clientes where saldo > 1000.00 and saldo < 4000.00 order by saldo desc;  
 
--- Códigos com update e delete
 
-set sql_safe_updates = 0;
-
-update clientes set saldo = 3000.00 where id = 2;
-update clientes set cidade = 'São Paulo' where id = 5;
-update clientes set cidade = 'Santo André', saldo = 1200.00 where id = 7;
-select * from clientes where cidade = 'São Paulo';
-delete from clientes where id = 3;
-delete from clientes where saldo < 1000.00;
-update clientes set saldo = 500 where cidade = 'São Paulo';
+select * from produtos;
+select nome from produtos;
+select preco from produtos;
+select * from produtos where preco >= 200.00;
+select * from produtos where estoque < 10;
+select * from produtos order by preco; 
+select * from produtos where preco > 100 and estoque > 5 order by preco desc;
